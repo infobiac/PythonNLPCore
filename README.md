@@ -5,7 +5,7 @@ Clone: git clone https://github.com/infobiac/PythonNLPCore.git
 
 CD: cd PythonNLPCore
 
-Install: pip install -e .
+Copy the NLPCore.py and data.py files out of src into the directory you'd like to use. Due to the nature of the read/writes of the command line tool, pip does not work in this instance.
 
 ## Usage
 You **must** have [Stanford's NLP Core installed first](https://stanfordnlp.github.io/CoreNLP/index.html). Usage is simple:
