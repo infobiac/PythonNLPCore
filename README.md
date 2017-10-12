@@ -3,8 +3,6 @@
 ## Installation instructions:
 Clone: git clone https://github.com/infobiac/PythonNLPCore.git
 
-CD: cd PythonNLPCore
-
 Copy the NLPCore.py and data.py files out of src into the directory you'd like to use. Due to the nature of the read/writes of the command line tool, pip does not work in this instance.
 
 ## Usage
