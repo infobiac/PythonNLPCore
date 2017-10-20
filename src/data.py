@@ -26,7 +26,10 @@ class Sentence:
 	def __init__(self, sentence):
 		self.tree = sentence
 		self.id = sentence.attrib['id']
-		self.parse = sentence.findall('parse')[0].text
+		if len(sentence.findall('parse')) != 0:
+			self.parse = sentence.findall('parse')[0].text
+		else:
+			self.parse = None
 		self.tokens = []
 		self.dependencies = []
 		self.entities = []
@@ -38,14 +41,15 @@ class Sentence:
 			if x.tag == 'dependencies':
 				for y in x:
 					self.dependencies.append(Dependency(y, x.attrib['type']))
-		for x in self.tree.findall("MachineReading")[0]:
-			if x.tag == 'entities':
-				for y in x:
-					self.entities.append(Entity(y, self.tokens))
-		for x in self.tree.findall("MachineReading")[0]:	
-			if x.tag == 'relations':
-				for y in x:
-					self.relations.append(Relation(y, self.tokens, self.entities))
+		if self.parse:
+			for x in self.tree.findall("MachineReading")[0]:
+				if x.tag == 'entities':
+					for y in x:
+						self.entities.append(Entity(y, self.tokens))
+			for x in self.tree.findall("MachineReading")[0]:	
+				if x.tag == 'relations':
+					for y in x:
+						self.relations.append(Relation(y, self.tokens, self.entities))
 
 
 	def tree_as_string(self):
@@ -147,4 +151,3 @@ class Relation:
 			st = st + str(x)
 		final = "Relation with id: {}, made up of the following entities: [{}], and the following probabilities:[{}]. ".format(self.id, st, self.probabilities)
 		return final
-
