@@ -41,15 +41,18 @@ class Sentence:
 			if x.tag == 'dependencies':
 				for y in x:
 					self.dependencies.append(Dependency(y, x.attrib['type']))
-		if self.parse:
-			for x in self.tree.findall("MachineReading")[0]:
-				if x.tag == 'entities':
-					for y in x:
-						self.entities.append(Entity(y, self.tokens))
-			for x in self.tree.findall("MachineReading")[0]:	
-				if x.tag == 'relations':
-					for y in x:
-						self.relations.append(Relation(y, self.tokens, self.entities))
+		try:
+			if self.parse:
+				for x in self.tree.findall("MachineReading")[0]:
+					if x.tag == 'entities':
+						for y in x:
+							self.entities.append(Entity(y, self.tokens))
+				for x in self.tree.findall("MachineReading")[0]:	
+					if x.tag == 'relations':
+						for y in x:
+							self.relations.append(Relation(y, self.tokens, self.entities))
+		except:
+			self.relations.append([])
 
 
 	def tree_as_string(self):
