@@ -15,6 +15,7 @@ You **must** have [Stanford's NLP Core installed first](https://stanfordnlp.gith
 Pipeline 1: tokenize,ssplit,pos,lemma,ner
 
 Pipeline 2: tokenize,ssplit,pos,lemma,ner,parse,relation
+
 Usage is simple:
 ~~~~
 from NLPCore import NLPCoreClient
