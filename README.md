@@ -31,7 +31,7 @@ print(doc.tree_as_string())
 For a list of all attributes, see src/data.py. To understand the structure of the tree at any stage, use the tree_as_string() function.
 **If the object wrappers are not working as expected, you can manipulate the XML tree that NLPCore returns directly. To do so, just call the tree attribute of the document that is returned by the annotate function.**
 
-You will need to pass sentences to the second pipeline by reconstructing them out of tokens.
+You may need to pass sentences to the second pipeline by reconstructing them out of tokens, depending on how you decide to interact with the command line.
 ~~~
 newsentence = ""
 for x in doc.sentences[0].tokens:
