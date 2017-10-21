@@ -9,7 +9,12 @@ Copy the NLPCore.py and data.py files out of src into the directory you'd like t
 
 ## Usage
 You **must** have [Stanford's NLP Core installed first](https://stanfordnlp.github.io/CoreNLP/index.html). 
-**NOTE: We have two pipelines. Pipeline 1: tokenize,ssplit,pos,lemma,ner Pipeline 2: tokenize,ssplit,pos,lemma,ner,parse,relation**
+
+**NOTE: We have two pipelines.**
+
+Pipeline 1: tokenize,ssplit,pos,lemma,ner
+
+Pipeline 2: tokenize,ssplit,pos,lemma,ner,parse,relation
 Usage is simple:
 ~~~~
 from NLPCore import NLPCoreClient
