@@ -7,7 +7,7 @@ Copy the NLPCore.py and data.py files out of src into the directory you'd like t
 
 ## Usage
 You **must** have [Stanford's NLP Core installed first](https://stanfordnlp.github.io/CoreNLP/index.html). 
-**NOTE: because we're utilizing the underlying annotator rather than the RelationExtractor annotator (as in the Java case), you must include the 'relation' annotator as a property for both pipelines, as in the example below.**
+**NOTE: We have two pipelines. Pipeline 1: tokenize,ssplit,pos,lemma,ner Pipeline 2: tokenize,ssplit,pos,lemma,ner,parse,relation**
 Usage is simple:
 ~~~~
 from NLPCore import NLPCoreClient
