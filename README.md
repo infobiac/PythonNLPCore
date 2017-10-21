@@ -5,6 +5,8 @@ Clone: git clone https://github.com/infobiac/PythonNLPCore.git
 
 Copy the NLPCore.py and data.py files out of src into the directory you'd like to use. Due to the nature of the read/writes of the command line tool, pip does not work in this instance.
 
+**Note: **This is an optional way to interact with the underlying library. All it does is call the command line tool. If you would like to modify it or not use it at all, or just take the command that runs the underlying program, you are welcome to do so.
+
 ## Usage
 You **must** have [Stanford's NLP Core installed first](https://stanfordnlp.github.io/CoreNLP/index.html). 
 **NOTE: We have two pipelines. Pipeline 1: tokenize,ssplit,pos,lemma,ner Pipeline 2: tokenize,ssplit,pos,lemma,ner,parse,relation**
