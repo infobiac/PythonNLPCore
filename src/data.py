@@ -115,7 +115,7 @@ class Dependency:
 class Entity:
 	def __init__(self, entity, tokens):
 		self.id = entity.attrib['id']
-		self.type = entity.text
+		self.type = ' '.join(entity.text.split())
 		self.value = None
 		for x in tokens:
 			if x.id == entity.findall("span")[0].attrib['end']:
@@ -128,7 +128,7 @@ class Entity:
 		return reparsed.toprettyxml(newl='')
 
 	def __str__(self):
-		st = "Entity with ID: {}, value: {}, and type: {}. ".format(self.id, self.type, self.value)
+		st = "Entity with ID: {}, value: {}, and type: {}. ".format(self.id, self.value, self.type)
 		return st
 
 class Relation:
