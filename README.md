@@ -5,9 +5,17 @@ Clone: git clone https://github.com/infobiac/PythonNLPCore.git
 
 Copy the NLPCore.py and data.py files out of src into the directory you'd like to use. Due to the nature of the read/writes of the command line tool, pip does not work in this instance.
 
+**Note:** This is an optional way to interact with the underlying library. All it does is write options to a file, call the command line tool with that file, and then read in the resulting file. If you would like to modify it or not use it at all, or just take the command that runs the underlying program, please do so; this is meant to just be a starting point.
+
 ## Usage
 You **must** have [Stanford's NLP Core installed first](https://stanfordnlp.github.io/CoreNLP/index.html). 
-**NOTE: because we're utilizing the underlying annotator rather than the RelationExtractor annotator (as in the Java case), you must include the 'relation' annotator as a property for both pipelines, as in the example below.**
+
+**NOTE: We have two pipelines.**
+
+Pipeline 1: tokenize,ssplit,pos,lemma,ner
+
+Pipeline 2: tokenize,ssplit,pos,lemma,ner,parse,relation
+
 Usage is simple:
 ~~~~
 from NLPCore import NLPCoreClient
@@ -28,6 +36,14 @@ print(doc.tree_as_string())
 
 For a list of all attributes, see src/data.py. To understand the structure of the tree at any stage, use the tree_as_string() function.
 **If the object wrappers are not working as expected, you can manipulate the XML tree that NLPCore returns directly. To do so, just call the tree attribute of the document that is returned by the annotate function.**
+
+You may need to pass sentences to the second pipeline by reconstructing them out of tokens, depending on how you decide to interact with the command line.
+~~~
+newsentence = ""
+for x in doc.sentences[0].tokens:
+	newsentence += " " + x.word
+print(newsentence)
+~~~
 ## Documentation:
 ### NLPCoreClient:
 * Parameters:
