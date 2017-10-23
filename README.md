@@ -40,13 +40,15 @@ print(doc.tree_as_string())
 For a list of all attributes, see src/data.py. To understand the structure of the tree at any stage, use the tree_as_string() function.
 **If the object wrappers are not working as expected, you can manipulate the XML tree that NLPCore returns directly. To do so, just call the tree attribute of the document that is returned by the annotate function, or if that isn't working read input.txt.xml.**
 
-You may need to pass sentences to the second pipeline by reconstructing them out of tokens, depending on how you decide to interact with the command line. In order to do so, isolate your candidate sentences from the first pipeline and look over them to reconstruct them by accessing each token's word:
+Because we can't pass the annotations directly into the second pipeline as in Java, you may need to create sentences in order to pass them to the second pipeline by reconstructing them out of tokens, depending on how you decide to interact with the command line. In order to do so, isolate your candidate sentences from the first pipeline and look over them to reconstruct them by accessing each token's word:
 ~~~
 newsentence = ""
 for x in doc.sentences[0].tokens:
 	newsentence += " " + x.word
 print(newsentence)
 ~~~
+By doing this for all the candidate sentences and collecting them in a list, we can then pass the list into the second annotator as our input.
+
 ## Rough Documentation:
 ### NLPCoreClient:
 * Parameters:
