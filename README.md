@@ -5,10 +5,10 @@ Clone: git clone https://github.com/infobiac/PythonNLPCore.git
 
 Copy the NLPCore.py and data.py files out of src into the directory you'd like to use. Due to the nature of the read/writes of the command line tool, pip does not work in this instance.
 
-**Note:** This is an optional way to interact with the underlying library. All it does is write options to a file, call the command line tool with that file, and then read in the resulting file. If you would like to modify it or not use it at all, or just take the command that runs the underlying program, please do so; this is meant to just be a starting point.
+**Note:** This is an optional way to interact with the CoreNLP command line tool. If you would like to modify it or not use it at all, or just take the command that runs the underlying program, please do so; this is meant to just be a starting point.
 
 ## How it works:
-This is a very lightweight wrapper file for calling the underlying CoreNLP command line tool (as per the usage here: https://stanfordnlp.github.io/CoreNLP/cmdline.html). All it does is create a properties file and an input file based on what is passed too it, then it runs the command line tool with these as arguments. After the command line tool has finished running, it will try read the outputed xml file into objects for easier manipulation. You can (and should if you want) modify any aspect of this to suit your needs. After running the tool for the first time please read through the outputed xml file (by default it is named input.txt.xml) in order to understand what CoreNLP outputs, and read the cmdline documentation if you have any issues.
+This is a very lightweight wrapper file for calling the underlying CoreNLP command line tool (as per the usage here: https://stanfordnlp.github.io/CoreNLP/cmdline.html). It creates a properties file and an input file based on what is passed to it, then it runs the command line tool with these as arguments. After the command line tool has finished running, it will try read the outputed xml file into objects for easier manipulation. You can (and should if you want) modify any aspect of this to suit your needs. After running the tool for the first time please read through the outputed xml file (by default it is named input.txt.xml) in order to understand what CoreNLP outputs, and read the cmdline documentation if you have any issues.
 
 ## Usage
 You **must** have [Stanford's NLP Core installed first](https://stanfordnlp.github.io/CoreNLP/index.html). 
