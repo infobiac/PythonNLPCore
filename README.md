@@ -11,7 +11,7 @@ Copy the NLPCore.py and data.py files out of src into the directory you'd like t
 This is a very lightweight wrapper file for calling the underlying CoreNLP command line tool (as per the usage here: https://stanfordnlp.github.io/CoreNLP/cmdline.html). It creates a properties file and an input file based on what is passed to it, then it runs the java based command line tool with these as arguments. After the command line tool has finished running, it will try read the outputed xml file into objects for easier manipulation. You can (and should if you want) modify any aspect of this to suit your needs. After running the tool for the first time please read through the outputed xml file (by default it is named input.txt.xml) in order to understand what CoreNLP outputs, and read the cmdline documentation if you have any issues.
 
 ## Usage
-You **must** have [Stanford's NLP Core installed first](https://stanfordnlp.github.io/CoreNLP/index.html). 
+You **must** have [Stanford's NLP Core installed first](https://stanfordnlp.github.io/CoreNLP/index.html). You also **must** have a version of Java capable of running this library.
 
 **NOTE: We have two pipelines.**
 
