@@ -56,7 +56,7 @@ class Sentence:
 
 
 	def tree_as_string(self):
-		rough_string = ET.tostring(self.tree.getroo, "utf-8", method="xml")
+		rough_string = ET.tostring(self.tree, "utf-8", method="xml")
 		reparsed = minidom.parseString(rough_string)
 		return reparsed.toprettyxml(newl='')
 
@@ -85,7 +85,7 @@ class Token:
 		self.ner = token.findall("NER")[0].text
 
 	def tree_as_string(self):
-		rough_string = ET.tostring(self.tree.getroo, "utf-8", method="xml")
+		rough_string = ET.tostring(self.tree, "utf-8", method="xml")
 		reparsed = minidom.parseString(rough_string)
 		return reparsed.toprettyxml(newl='')
 
@@ -104,7 +104,7 @@ class Dependency:
 		self.depidx = dependency.findall("dependent")[0].attrib['idx']
 
 	def tree_as_string(self):
-		rough_string = ET.tostring(self.tree.getroo, "utf-8", method="xml")
+		rough_string = ET.tostring(self.tree, "utf-8", method="xml")
 		reparsed = minidom.parseString(rough_string)
 		return reparsed.toprettyxml(newl='')
 
